@@ -166,7 +166,7 @@ function inicio(m){
   K('💵 Saldo en Caja',cj,'caja',cj<0?'pos':'','<span class="mut" style="font-size:13px">Efectivo disponible</span>')+
   K('🏦 Saldo en Bancos',bk,'movbanco',bk<0?'pos':'',L(S.banks.map(k=>({n:k.banco+' · '+k.num,v:bBal(k.id)})),'Sin bancos cargados'))+
   K('📤 Deuda a Proveedores',tot(dp),'ccc','pos',L(may(dp),'Sin deudas pendientes'))+
-  K('📥 Deuda de Clientes',tot(dc),'ccv','neg',L(may(dc),'Sin saldos pendientes'))+`</div><p class="mut" style="font-size:12px">Tocá una tarjeta para ver el detalle. En las deudas se listan los 5 saldos más altos.</p>`;
+  K('📥 Deuda de Clientes',tot(dc),'ccv','neg',L(may(dc),'Sin saldos pendientes'))+`</div><p class="mut" style="font-size:12px">Tocá una tarjeta para ver el detalle.</p>`;
  m.onclick=e=>{const c=e.target.closest('[data-go]');if(c){view=c.dataset.go;go()}}}
 /* ---- Caja (efectivo) ---- */
 function cashMv(){const a=[];S.receipts.filter(x=>!x.bank&&x.method==='Efectivo').forEach(x=>a.push({d:x.date,t:'Recibo '+x.number+' · '+find('clients',x.party).name,o:'Recibo',i:x.amount,e:0,k:x.id}));
